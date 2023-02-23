@@ -1,0 +1,12 @@
+Test:
+  stage: test
+  image:
+    name: python-tools
+    entrypoint: [ "" ]
+  script:
+    - apt-get update -q -y
+    - cd src
+    - pip3 install --no-cache-dir -r requirements.txt
+    - python3 -m pytest --verbose
+    - apt install pylint
+    - pylint --max-line-length=120 ./translator/deserializer.py ./utils.py ./translator/validator.py ./machine/acc_machine.py

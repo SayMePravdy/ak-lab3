@@ -1,0 +1,46 @@
+source: |-
+  section .data
+  	VAL:		116396280
+  	MAX_DIV:	20
+  	CNT:		2
+  	STEP:		969969 ; multiply primes
+
+  section .text
+  .start:
+    LD	VAL
+    .check_divide:
+        MOD	CNT
+        JNZ	.value_does_not_match
+        LD	CNT
+        INC
+        ST	CNT
+        CMP MAX_DIV
+        JZ	.end
+        JMP	.start
+
+
+  .value_does_not_match:
+    LD	#2
+    ST	CNT
+    LD	VAL
+    ADD	STEP
+    ST	VAL
+    JMP	.check_divide
+  .end:
+  	LD	VAL
+  	ST	STDOUT
+  	HLT
+input: |-
+  [
+      {"tick": 1, "char": "f"},
+      {"tick": 2, "char": "o"},
+      {"tick": 6, "char": "o"},
+      {"tick": 45, "char": "\n"}
+  ]
+output: |
+  Program successfully translated!
+  LoC: 28
+  Code: 23
+  Output: 232792560
+  Instructions: 2730
+  Ticks: 8171

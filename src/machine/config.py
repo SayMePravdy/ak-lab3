@@ -1,0 +1,18 @@
+MEM_SIZE = 16384  # cells count
+WORD = 32  # cell bit size
+MAX_VAL = 2 ** (WORD - 1) - 1
+MIN_VAL = -1 * (2 ** (WORD - 1))
+START_LABEL = '.start'
+
+# IO addresses
+INPUT_ADDRESS = 0
+OUTPUT_ADDRESS = 1
+
+INTERRUPT_START_ADDRESS = 10
+MAX_INTERRUPT_ADDRESS = 89
+
+ACC_SAVE_ADDRESS = 90
+FLAG_SAVE_ADDRESS = 91
+PC_SAVE_ADDRESS = 92
+
+MAX_BUSINESS_ADDRESS = 99  # 0 - 99 is business address

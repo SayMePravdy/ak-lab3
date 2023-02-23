@@ -1,0 +1,31 @@
+source: |-
+  section .data
+  	S44: "Hello, world!"
+  	NULL_TERM: 0
+  	IND: &S44
+
+  section .text
+  .start:	LD	*IND
+    CMP	NULL_TERM
+    JZ	.end
+    ST	STDOUT
+    LD	IND
+    INC	; ADD #1
+    ST	IND
+    JMP	.start
+
+  .end:	HLT
+input: |-
+  [
+      {"tick": 1, "char": "f"},
+      {"tick": 2, "char": "o"},
+      {"tick": 6, "char": "o"},
+      {"tick": 45, "char": "\n"}
+  ]
+output: |
+  Program successfully translated!
+  LoC: 14
+  Code: 25
+  Output: Hello, world!
+  Instructions: 112
+  Ticks: 419
