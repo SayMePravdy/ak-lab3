@@ -154,7 +154,7 @@ Memory
 2. [cat](src/asm/cat.asm) -- программа `cat`, повторяем ввод на выводе.
 2. [prob5](src/asm/prob5.asm) -- проблема Эйлера, находит минимальное число, которое делится на все числа от 1 до 20
 
-Интеграционные тесты реализованы тут: [integration_test](src/integration_test.py) в виде golden tests, конфигурация которых лежит в папке [golden](golden)
+Интеграционные тесты реализованы тут: [integration_test](src/integration_test.py) в виде golden tests, конфигурация которых лежит в папке [golden](src/golden)
 
 CI (for gitlab):
 
