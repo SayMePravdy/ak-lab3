@@ -22,4 +22,6 @@ jobs:
     - name: Analysing the code with pylint
       run: |
         pylint --max-line-length=120 ./src/translator/deserializer.py ./src/utils.py ./src/translator/validator.py ./src/machine/acc_machine.py
+    - name: Run tests
+      run:
         pytest
