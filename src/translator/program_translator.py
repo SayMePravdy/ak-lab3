@@ -22,9 +22,9 @@ def translate(input_file: str, output_file: str) -> None:
 
 
 if __name__ == "__main__":
-    # if len(sys.argv) != 3:
-    #     print('Incorrect arguments! Please run: program_translator.py <input_file> <target_file>')
-    # else:
-    #     print()
-    #     translate(sys.argv[1], sys.argv[2])
+    if len(sys.argv) != 3:
+        print('Incorrect arguments! Please run: program_translator.py <input_file> <target_file>')
+    else:
+        print()
+        translate(sys.argv[1], sys.argv[2])
     translate('../asm/prob5.asm', '../output/prob5.o')
