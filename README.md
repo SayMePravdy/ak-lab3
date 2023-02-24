@@ -33,7 +33,7 @@ comment ::= <all symbols after ; >
      - Непосредственное значение (объявляется при помощи спец символа `#`)
      - Перменная (ее метка)
      - Переменная с косвенной адресацией (метка перменной с `*` в начале).
-Примеры использования хорошо продемонстрированы в программе: [hello_world](asm/hello_world.asm)
+Примеры использования хорошо продемонстрированы в программе: [hello_world](src/asm/hello_world.asm)
 
 
 ## Организация памяти
@@ -111,7 +111,7 @@ Memory
 
 Интерфейс командной строки: `program_translator.py <input_file> <target_file>"`
 
-Реализовано в модуле: [translator](translator/program_translator.py)
+Реализовано в модуле: [translator](src/translator/program_translator.py)
 
 Этапы трансляции (функция `translate`):
 
@@ -126,7 +126,7 @@ Memory
 
 ## Модель процессора
 
-Реализовано в модуле: [machine](machine/acc_machine.py).
+Реализовано в модуле: [machine](src/machine/acc_machine.py).
 
 ### ControlUnit
 ![plot](processor.jpg)
@@ -150,13 +150,13 @@ Memory
 
 В качестве тестов использовано два алгоритма:
 
-1. [hello world](asm/hello_world.asm) -- программа выводит "Hello, world!"
-2. [cat](asm/cat.asm) -- программа `cat`, повторяем ввод на выводе.
-2. [prob5](asm/prob5.asm) -- проблема Эйлера, находит минимальное число, которое делится на все числа от 1 до 20
+1. [hello world](src/asm/hello_world.asm) -- программа выводит "Hello, world!"
+2. [cat](src/asm/cat.asm) -- программа `cat`, повторяем ввод на выводе.
+2. [prob5](src/asm/prob5.asm) -- проблема Эйлера, находит минимальное число, которое делится на все числа от 1 до 20
 
-Интеграционные тесты реализованы тут: [integration_test](integration_test.py) в виде golden tests, конфигурация которых лежит в папке [golden](golden)
+Интеграционные тесты реализованы тут: [integration_test](src/integration_test.py) в виде golden tests, конфигурация которых лежит в папке [golden](golden)
 
-CI:
+CI (for gitlab):
 
 ``` yaml
 Test:
@@ -180,6 +180,7 @@ Test:
 Пример использования и журнал работы процессора на примере `cat`:
 
 ``` console
+> cd src
 > cat asm/cat.asm
 section .interrupt
 	LD	STDIN
