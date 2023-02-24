@@ -333,9 +333,7 @@ def run(run_args: list):
 
 
 if __name__ == '__main__':
-    # if len(sys.argv) != 2:
-    #     logger.error('Incorrect arguments! Please run: program_translator.py <translated_program> <input_file>')
-    # else:
-    #     run(sys.argv[1:])
-    args = ['../output/prob5.o', '../input/interrupt.json']
-    run(args)
+    if len(sys.argv) != 2:
+        logger.error('Incorrect arguments! Please run: program_translator.py <translated_program> <input_file>')
+    else:
+        run(sys.argv[1:])
