@@ -129,7 +129,7 @@ Memory
 Реализовано в модуле: [machine](src/machine/acc_machine.py).
 
 ### ControlUnit
-![plot](processor.jpg)
+![plot](src/processor.jpg)
 
 Реализован в классе `ControlUnit`.
 
