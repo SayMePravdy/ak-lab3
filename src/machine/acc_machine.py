@@ -165,7 +165,7 @@ class ControlUnit:
         if arg.arg_type == ArgType.VAL:
             self.set_data_reg(arg.val)
             self._tick()
-        elif arg.arg_type == ArgType.ADDR or arg.arg_type == ArgType.STDIN:
+        elif arg.arg_type in (ArgType.ADDR, ArgType.STDIN):
             self.set_addr_reg(arg.val)
             self._tick()
             self.read()
