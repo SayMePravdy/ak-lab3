@@ -172,6 +172,37 @@ Test:
     - pylint --max-line-length=120 ./translator/deserializer.py ./utils.py ./translator/validator.py ./machine/acc_machine.py
 ```
 
+CI (for github):
+``` yaml
+name: Test
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9"]
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pylint
+        pip install pytest-golden
+    - name: Analysing the code with pylint
+      run: |
+        pylint --max-line-length=120 ./src/translator/deserializer.py ./src/utils.py ./src/translator/validator.py ./src/machine/acc_machine.py
+    - name: Run tests
+      run:
+        pytest
+```
+
 где:
 
 - `pytest` -- утилита для запуска тестов.
